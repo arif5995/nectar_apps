@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:nectar_apps/authentification/sign_in_page.dart';
 
 class StartedPage extends StatelessWidget {
   const StartedPage({Key? key}) : super(key: key);
@@ -13,13 +14,15 @@ class StartedPage extends StatelessWidget {
       backgroundColor: HexColor("#53B175"),
       body: Stack(
         children: [
-          Center(
-            child: Image(
+          Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
               image: AssetImage('assets/images/get_started.png'),
-            ),
+              fit: BoxFit.cover,
+            )),
           ),
           Positioned(
-            top: 448,
+            top: 448.h,
             child: Container(
               width: 414.w,
               child: Column(
@@ -27,7 +30,7 @@ class StartedPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image(
-                    image: AssetImage('assets/icons/logo_wortel.png'),
+                    image: const AssetImage('assets/icons/logo_wortel.png'),
                     width: 48.47.w,
                     height: 58.36.h,
                   ),
@@ -44,7 +47,9 @@ class StartedPage extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(height: 5.h,),
+                  SizedBox(
+                    height: 5.h,
+                  ),
                   Text(
                     'Ger your groceries in as fast as one hour',
                     textAlign: TextAlign.center,
@@ -55,23 +60,30 @@ class StartedPage extends StatelessWidget {
                           fontWeight: FontWeight.w100),
                     ),
                   ),
-                  SizedBox(height: 30.h,),
+                  SizedBox(
+                    height: 30.h,
+                  ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: HexColor("#53B175"),
+                        backgroundColor: HexColor("#53B175"),
                         foregroundColor: HexColor("#53B175"),
                         fixedSize: Size(353.w, 67.h),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(19.r))
-                    ),
-                    onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(19.r))),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignInPage()),
+                      );
+                    },
                     child: Text(
                       'Get Started',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.quicksand(
                         textStyle: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.sp,),
+                          color: Colors.white,
+                          fontSize: 18.sp,
+                        ),
                       ),
                     ),
                   ),
