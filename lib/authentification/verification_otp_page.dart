@@ -3,6 +3,8 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:nectar_apps/authentification/select_location_page.dart';
+import 'package:nectar_apps/utils/widgets/route_custom.dart';
 
 class VerificationOTPPage extends StatelessWidget {
   const VerificationOTPPage({super.key});
@@ -109,7 +111,9 @@ class VerificationOTPPage extends StatelessWidget {
           ),
           FloatingActionButton(
             backgroundColor: HexColor("#53B175"),
-            onPressed: () {  },
+            onPressed: () {
+              Navigator.push(context, RouteCustom(widget: SelectLocationPage()));
+            },
             child: const Icon(Icons.arrow_forward_ios, color: Colors.white,),
           ),
         ],

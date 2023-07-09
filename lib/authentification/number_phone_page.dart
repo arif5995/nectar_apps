@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:nectar_apps/authentification/select_location_page.dart';
+import 'package:nectar_apps/authentification/verification_otp_page.dart';
 import 'package:nectar_apps/utils/widgets/route_custom.dart';
 
 class NumberPhonePage extends StatelessWidget {
@@ -77,7 +78,7 @@ class NumberPhonePage extends StatelessWidget {
         backgroundColor: HexColor("#53B175"),
         onPressed: () {
           print("Lanjut");
-          Navigator.push(context, RouteCustom(widget: SelectLocationPage()));
+          Navigator.push(context, RouteCustom(widget: VerificationOTPPage()));
 
         },
         child: const Icon(Icons.arrow_forward_ios, color: Colors.white,),

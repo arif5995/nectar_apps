@@ -3,26 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:nectar_apps/Cart/cart_page.dart';
-import 'package:nectar_apps/account/account_page.dart';
-import 'package:nectar_apps/authentification/signup_page.dart';
-import 'package:nectar_apps/bottom_navigation_bar_page.dart';
-import 'package:nectar_apps/explore/explore_page.dart';
-import 'package:nectar_apps/favourite/favourite_page.dart';
-import 'package:nectar_apps/home/home_page.dart';
+import 'package:nectar_apps/authentification/login_page.dart';
 import 'package:nectar_apps/utils/widgets/button_custom.dart';
 import 'package:nectar_apps/utils/widgets/text_form_field_custom.dart';
 import 'package:nectar_apps/utils/extensions/string_extensions.dart'
-    as stringext;
+as stringext;
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   bool obscure = true;
   @override
   Widget build(BuildContext context) {
@@ -36,9 +30,9 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
-                fit: BoxFit.cover,
-              )),
+                    image: AssetImage('assets/images/background.png'),
+                    fit: BoxFit.cover,
+                  )),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -60,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Loging',
+                      'Sign Up',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.quicksand(
                         textStyle: TextStyle(
@@ -76,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      'Enter your email and password',
+                      'Enter your credentials to continue',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.quicksand(
                         textStyle: TextStyle(
@@ -88,6 +82,17 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(
                     height: 70.h,
+                  ),
+                  TextFormFieldCustom.NormalInput(
+                    label: "Username",
+                    hint: "Username",
+                    textInputType: TextInputType.emailAddress,
+                    validation: (value) {
+
+                    },
+                  ),
+                  SizedBox(
+                    height: 20.h,
                   ),
                   TextFormFieldCustom.NormalInput(
                     label: "Email",
@@ -115,33 +120,11 @@ class _LoginPageState extends State<LoginPage> {
                     height: 10.h,
                   ),
                   Align(
-                    alignment: Alignment.topRight,
-                    child: Text(
-                      "Forgot Password?",
-                      style: GoogleFonts.quicksand(
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14.sp,),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 50.h,),
-                  ButtonCustom.ButtonNotIcon(
-                      backGroundColor: HexColor("#53B175"),
-                      foreGroundColor: HexColor("#FFFFFF"),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => BottomNavigationBarPage()));
-                      },
-                      label: "Submit"),
-                  SizedBox(height: 10.h,),
-                  Align(
                     alignment: Alignment.center,
                     child: RichText(
                       text: TextSpan(children: [
                         TextSpan(
-                          text: 'Don\'t have an account? ',
+                          text: 'By continuing you agree to our',
                           style: GoogleFonts.quicksand(
                             textStyle: TextStyle(
                               color: Colors.black,
@@ -149,7 +132,61 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         TextSpan(
-                            text: 'Signiup',
+                            text: ' Term of Service ',
+                            style: GoogleFonts.quicksand(
+                              textStyle: TextStyle(
+                                color: HexColor("#53B175"),
+                                fontSize: 14.sp,),
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                print('Login Text Clicked');
+                              },
+                        ),
+                        TextSpan(
+                          text: 'and',
+                          style: GoogleFonts.quicksand(
+                            textStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14.sp,),
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' Privacy Policy ',
+                          style: GoogleFonts.quicksand(
+                            textStyle: TextStyle(
+                              color: HexColor("#53B175"),
+                              fontSize: 14.sp,),
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              print('Login Text Clicked');
+                            },
+                        ),
+                      ]),
+                    ),
+                  ),
+                  SizedBox(height: 50.h,),
+                  ButtonCustom.ButtonNotIcon(
+                      backGroundColor: HexColor("#53B175"),
+                      foreGroundColor: HexColor("#FFFFFF"),
+                      onTap: () {},
+                      label: "Submit"),
+                  SizedBox(height: 10.h,),
+                  Align(
+                    alignment: Alignment.center,
+                    child: RichText(
+                      text: TextSpan(children: [
+                        TextSpan(
+                          text: 'Already have an account? ',
+                          style: GoogleFonts.quicksand(
+                            textStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14.sp,),
+                          ),
+                        ),
+                        TextSpan(
+                            text: 'Login',
                             style: GoogleFonts.quicksand(
                               textStyle: TextStyle(
                                 color: HexColor("#53B175"),
@@ -160,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                                 print('Login Text Clicked');
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => SignupPage()));
+                                    MaterialPageRoute(builder: (context) => LoginPage()));
                               }),
                       ]),
                     ),
